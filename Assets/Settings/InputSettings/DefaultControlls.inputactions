@@ -47,8 +47,30 @@
                 },
                 {
                     "name": "",
+                    "id": "02b343e7-b8ce-45c4-b648-c0706a334517",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "23ebdbab-2394-48c9-a56b-eccd6c21181b",
                     "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ae2b9742-2607-426b-91ef-6e9aedbc5d9a",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -112,59 +134,15 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Mobile 2D Vector",
-                    "id": "3ef280fb-454c-4a3a-bd94-84ee92de4cd8",
-                    "path": "2DVector(mode=2)",
+                    "name": "",
+                    "id": "8a15804c-41af-4a8c-93e7-9995ae8532a0",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Movement",
-                    "isComposite": true,
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "4cac9d54-ba21-42fd-a0ad-373d0047d6ca",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "1945ac0a-aa92-4dc4-9171-969a52e658e8",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "0dedf97a-bddc-4726-ba73-644499cb3d8a",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "399dda0d-351d-4ee9-aa38-dc8876349d9e",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         }
