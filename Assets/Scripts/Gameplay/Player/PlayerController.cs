@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,9 +29,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Input System Settings")]
     [SerializeField] private InputActionAsset _actionAsset;
-    [SerializeField] private InputActionReference _jumpReference;
-    [SerializeField] private InputActionReference _sprintReference;
     [SerializeField] private InputActionReference _movementReference;
+    [SerializeField] private InputActionReference _sprintReference;
 
     private void Awake()
     {
@@ -70,12 +70,17 @@ public class PlayerController : MonoBehaviour
         movementValue *= Time.deltaTime;
 
         characterController.Move(new Vector3(movementValue.x, _yMovement * Time.deltaTime, movementValue.y));
-        if(characterController.velocity.sqrMagnitude > 0.1)
+        if (characterController.velocity.sqrMagnitude > 0.1)
             transform.forward = new Vector3(movementValue.x, 0f, movementValue.y);
 
-        if (JumpSkill.IsActive && _jumpReference.action.ReadValue<float>() > 0 && characterController.isGrounded)
-            _yMovement = 10f;
-
         _yMovement = Mathf.Max(-9.81f, _yMovement - Time.deltaTime * 30f);
+
     }
+
+    public void Jump()
+    {
+        if (JumpSkill.IsActive && characterController.isGrounded)
+            _yMovement = 10f;
+    }
+
 }
