@@ -57,6 +57,10 @@ MonoBehaviour:
     m_Bits: 4294967295
   JumpSkill: {fileID: 11400000, guid: ee6d361062635f24f99acb5197018902, type: 2}
   SprintSkill: {fileID: 11400000, guid: c44a6a3c29b8603409a6a0cb4321cced, type: 2}
+  _actionAsset: {fileID: -944628639613478452, guid: 02c99fba3544fa64291b1ba11c766995, type: 3}
+  _jumpReference: {fileID: 1788788740915257688, guid: 02c99fba3544fa64291b1ba11c766995, type: 3}
+  _sprintReference: {fileID: 5413907341383116521, guid: 02c99fba3544fa64291b1ba11c766995, type: 3}
+  _movementReference: {fileID: 6708731105729371326, guid: 02c99fba3544fa64291b1ba11c766995, type: 3}
 --- !u!114 &572808859466618219
 MonoBehaviour:
   m_ObjectHideFlags: 0

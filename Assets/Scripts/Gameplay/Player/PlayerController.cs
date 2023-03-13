@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,7 +24,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SkillSO JumpSkill;
     [SerializeField] SkillSO SprintSkill;
 
-    private float yMovement = -9.81f;
+    private float _yMovement = -9.81f;
+
+    [Header("Input System Settings")]
+    [SerializeField] private InputActionAsset _actionAsset;
+    [SerializeField] private InputActionReference _jumpReference;
+    [SerializeField] private InputActionReference _sprintReference;
+    [SerializeField] private InputActionReference _movementReference;
 
     private void Awake()
     {
@@ -34,11 +41,21 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
     }
 
+    private void OnEnable()
+    {
+        _actionAsset.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _actionAsset.Disable();
+    }
+
     private void Update()
     {
-        var movementValue = new Vector2(Input.GetAxis("Horizontal"),  Input.GetAxis("Vertical"));
+        var movementValue = _movementReference.action.ReadValue<Vector2>();
 
-        if (SprintSkill.IsActive && Input.GetKey(KeyCode.LeftShift) && StaminaVariable.Value > 0)
+        if (SprintSkill.IsActive && _sprintReference.action.ReadValue<float>() > 0 && StaminaVariable.Value > 0)
         {
             movementValue *= sprintModificator;
             StaminaVariable.Value -= staminaUse * Time.deltaTime;
@@ -52,13 +69,13 @@ public class PlayerController : MonoBehaviour
         movementValue *= velocity;
         movementValue *= Time.deltaTime;
 
-        characterController.Move(new Vector3(movementValue.x, yMovement * Time.deltaTime, movementValue.y));
+        characterController.Move(new Vector3(movementValue.x, _yMovement * Time.deltaTime, movementValue.y));
         if(characterController.velocity.sqrMagnitude > 0.1)
             transform.forward = new Vector3(movementValue.x, 0f, movementValue.y);
 
-        if (JumpSkill.IsActive && Input.GetKeyDown(KeyCode.Space) && characterController.isGrounded)
-            yMovement = 10f;
+        if (JumpSkill.IsActive && _jumpReference.action.ReadValue<float>() > 0 && characterController.isGrounded)
+            _yMovement = 10f;
 
-        yMovement = Mathf.Max(-9.81f, yMovement - Time.deltaTime * 30f);
+        _yMovement = Mathf.Max(-9.81f, _yMovement - Time.deltaTime * 30f);
     }
 }
