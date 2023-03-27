@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Steamworks;
+using PlatformServices;
 
 public class GameManager : MonoBehaviour
 {
 
-    private void Awake()
+    private void Start()
     {
-        SteamUserStats.SetAchievement("welcomeAchievement");
+        UserStats.SetAchievement("welcomeAchievement");
     }
 }

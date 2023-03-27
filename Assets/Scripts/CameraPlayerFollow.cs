@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Steamworks;
+using PlatformServices;
 
 public class CameraPlayerFollow : MonoBehaviour
 {
@@ -9,8 +9,9 @@ public class CameraPlayerFollow : MonoBehaviour
 
     private void Awake()
     {
-        SteamUserStats.SetAchievement("cameraControlled");
+        UserStats.SetAchievement("cameraControlled");
     }
+
 
     private void LateUpdate()
     {
