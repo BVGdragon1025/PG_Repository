@@ -51,7 +51,8 @@ namespace PlatformServices
     {
         public bool SetAchievement(string achievementId)
         {
-            throw new NotImplementedException();
+            Social.ReportProgress(achievementId, 100f, null);
+            return true; //IT'S FAKE!
         }
     }
 

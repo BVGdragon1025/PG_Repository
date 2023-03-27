@@ -1,7 +1,10 @@
-using GooglePlayGames.BasicApi;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+#if UNITY_ANDROID
+using GooglePlayGames.BasicApi;
+#endif
 
 public class GoogleManager : MonoBehaviour
 {
@@ -13,18 +16,6 @@ public class GoogleManager : MonoBehaviour
         {
             Debug.Log($"Authntication status: {status}");
         });
-    }
-
-    internal bool ProcessAuthentication(SignInStatus status)
-    {
-        if(status == SignInStatus.Success)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 
 #endif
